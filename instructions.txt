@@ -1,0 +1,29 @@
+1. Scrape data from https://www.aisc.org/jsonexport.aspx.
+2. For each item, create a series dictionary containing two keys: series id and fields.
+3. Store date fields as datetime objects and add `_date` suffix to field name (e.g. changed_date).
+4. If a field is a dictionary, add `_obj` suffix to its name.
+5. Sanitize fields by removing html tags if present.
+6. Add a static field `doc_type = "AISC.org"` to all series. HINT: use SETTINGS for this.
+7. Your solution must print all series. One series per line.
+
+
+PS: Think of code reusability, could your solution be scaled to process different API endpoints?
+
+
+Output example
+
+{
+	"series_id": "AISC\290", 
+	"fields": {
+        	"doc_type": "AISC.org",
+		"contentLink_obj": {
+			"id": 290,
+			"workId": 1234, 
+			"guidValue": "abcdef"
+		},
+		"name": "my content",
+		"language": "en",
+		"changed_date": datetime.datetime(2024, 8, 5, 9, 5, 39, 580282),
+		...
+	}
+}
